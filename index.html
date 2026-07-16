@@ -6,10 +6,43 @@
         background-color: black;
       }
     </style>
+    <style>
+      $finalHeight: 250px;
+      $finalWidth: 3* $finalHeight;
+      &scrollBarHeight: 1px;
+
+      ::-webkit-scrollbar {
+        width: $scrollBarheight;
+        height: $scrollBarHeight;
+      }
+
+      ::-webkit-scrollbar-button {
+        width: $scrollBarHeight;
+        height: $scrollBarHeight;
+      }
+
+      .horizontal-scroll-wrapper {
+        position: absolute;
+        dipay: block;
+        top: 0;
+        left: 0;
+        width: calc(#{$finalHeight} + #{$scrollBarHeight});
+        max-height: $finalWidth;
+        margin: 0;
+        padding-top: $scrollBarHeight;
+        background: #000;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transform: rotate(-90deg) translateY(-$finalHeight);
+        transform-origin: right top;
+      }
+    </style>
   </head>
   <body>
-    <div style="border: 1px outset white; background-color: black; text-align: center;"> <!-- text-align: center; is for testing purposes only -->
-      <h1 style="color: white;"> test </h1>
+    <div class="horizontal-scroll-wrapper">
+      <div style="border: 1px outset white; background-color: black; text-align: center;"> <!-- text-align: center; is for testing purposes only -->
+        <h1 style="color: white;"> test </h1>
+      </div>
     </div>
   </body>
 </html>
